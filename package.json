@@ -7,7 +7,7 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha -u bdd",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "coverage-html": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec"
+    "coverage-html": "istanbul cover ./node_modules/mocha/bin/_mocha -- "
   },
   "version": "1.0.0",
   "dependencies": {

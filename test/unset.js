@@ -9,7 +9,7 @@ describe('DeepModel', function() {
 		var triggeredEvents = [];
 		before(function() {
 
-			model.bind('all', function(changedAttr, model, val) {
+			model.on('all', function(changedAttr, model, val) {
 				triggeredEvents.push(changedAttr);
 			});
 		});
@@ -88,7 +88,7 @@ describe('DeepModel', function() {
 
 		it("unset: Triggers model change:[attribute] events", function(done) {
 			var model = new DeepModel(bioData);
-			model.bind('change:id', function(model, val) {
+			model.on('change:id', function(model, val) {
 				expect(val).to.be.undefined;
 				done()
 			});
@@ -97,7 +97,7 @@ describe('DeepModel', function() {
 
 		it("unset: Triggers model change:[attribute] events", function(done) {
 			var model = new DeepModel(bioData);
-			model.bind('change:user.name.first', function(model, val) {
+			model.on('change:user.name.first', function(model, val) {
 				expect(val).to.be.undefined;
 				done()
 			});

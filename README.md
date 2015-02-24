@@ -49,12 +49,12 @@ var model = new Backbone.DeepModel({
 });
 
 //You can bind to change events on nested attributes
-model.bind('change:user.name.first', function(model, val) {
+model.on('change:user.name.first', function(model, val) {
     console.log(val);
 });
 
 //Wildcards are supported
-model.bind('change:user.*', function() {});
+model.on('change:user.*', function() {});
 
 //Use set with a path name for nested attributes
 //NOTE you must you quotation marks around the key name when using a path

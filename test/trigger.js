@@ -9,7 +9,7 @@ describe('DeepModel', function() {
 		before(function() {
 			triggeredEvents = [];
 
-			model.bind('all', function(changedAttr, model, val) {
+			model.on('all', function(changedAttr, model, val) {
 				triggeredEvents.push(changedAttr);
 			});
 		});
@@ -36,7 +36,7 @@ describe('DeepModel', function() {
 
 		it("set: Triggers model change:[attribute] events", function(done) {
 			var model = new DeepModel(bioData);
-			model.bind('change:id', function(model, val) {
+			model.on('change:id', function(model, val) {
 				expect(val).to.equal(456);
 				done();
 			});
@@ -45,18 +45,6 @@ describe('DeepModel', function() {
 			});
 		});
 
-
-		it("set: Triggers model change:[attribute] events", function(done) {
-			var model = new DeepModel(bioData);
-			model.bind('change:user.name.first', function(model, val) {
-				expect(val).to.equal('Lana');
-				done();
-			});
-			model.set({
-				'user.name.first': 'Lana',
-				'user.name.last': 'Kang'
-			});
-		});
 
 		it("set: Triggers model change:[attribute] events", function(done) {
 			var model = new DeepModel(bioData);
@@ -85,7 +73,7 @@ describe('DeepModel', function() {
 
 		it("set: Correct values passed to wildcard event handlers", function(done) {
 			var model = new DeepModel(bioData);
-			model.bind('change:user.name.*', function(model, val) {
+			model.on('change:user.name.*', function(model, val) {
 				expect(val).to.deep.equal({
 					first: 'Lana',
 					last: 'Archer'
@@ -100,7 +88,7 @@ describe('DeepModel', function() {
 
 		it("set: Correct values passed to wildcard event handlers", function(done) {
 			var model = new DeepModel(bioData);
-			model.bind('change:user.*', function(model, val) {
+			model.on('change:user.*', function(model, val) {
 				expect(val).to.deep.equal({
 					name: {
 						first: 'Lana',
@@ -125,7 +113,7 @@ describe('DeepModel', function() {
 
 			var triggeredEvents = [];
 
-			model.bind('all', function(changedAttr, model, val) {
+			model.on('all', function(changedAttr, model, val) {
 				triggeredEvents.push(changedAttr);
 			});
 
