@@ -15,7 +15,8 @@ Triggers change events for changes on nested attributes.
 Dependencies
 ============
 
-Backbone >= 0.9.10
+Backbone >= 1.0.0
+Underscore >= 1.4.4 or Lodash v2.4.x
 
 Installation
 ============
@@ -30,42 +31,44 @@ Then just have your models extend from Backbone.DeepModel instead of Backbone.Mo
 
 Example code:
 
-    //Create models with nested attributes
-    var model = new Backbone.DeepModel({
-        id: 123,
-        user: {
-            type: 'Spy',
-            name: {
-                first: 'Sterling',
-                last: 'Archer'
-            }
-        },
-        otherSpies: [
-            { name: 'Lana' },
-            { name: 'Cyrril' }
-        ]
-    });
-    
-    //You can bind to change events on nested attributes
-    model.bind('change:user.name.first', function(model, val) {
-        console.log(val);
-    });
+```javascript
+//Create models with nested attributes
+var model = new Backbone.DeepModel({
+    id: 123,
+    user: {
+        type: 'Spy',
+        name: {
+            first: 'Sterling',
+            last: 'Archer'
+        }
+    },
+    otherSpies: [
+        { name: 'Lana' },
+        { name: 'Cyrril' }
+    ]
+});
 
-    //Wildcards are supported
-    model.bind('change:user.*', function() {});
-    
-    //Use set with a path name for nested attributes
-    //NOTE you must you quotation marks around the key name when using a path
-    model.set({
-        'user.name.first': 'Lana',
-        'user.name.last':  'Kang'
-    });
-    
-    //Use get() with path names so you can create getters later
-    console.log(model.get('user.type'));    // 'Spy'
+//You can bind to change events on nested attributes
+model.bind('change:user.name.first', function(model, val) {
+    console.log(val);
+});
 
-    //You can use index notation to fetch from arrays
-    console.log(model.get('otherSpies.0.name')) //'Lana'
+//Wildcards are supported
+model.bind('change:user.*', function() {});
+
+//Use set with a path name for nested attributes
+//NOTE you must you quotation marks around the key name when using a path
+model.set({
+    'user.name.first': 'Lana',
+    'user.name.last':  'Kang'
+});
+
+//Use get() with path names so you can create getters later
+console.log(model.get('user.type'));    // 'Spy'
+
+//You can use index notation to fetch from arrays
+console.log(model.get('otherSpies.0.name')) //'Lana'
+```
 
 Author
 ======
