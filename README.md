@@ -15,8 +15,8 @@ Triggers change events for changes on nested attributes.
 Dependencies
 ============
 
-Backbone >= 1.0.0
-Underscore >= 1.4.4 or Lodash v2.4.x
+* Backbone >= 1.0.0
+* Underscore >= 1.4.4 or Lodash v2.4.x or Lodash v3.x.x
 
 Installation
 ============
@@ -87,7 +87,9 @@ Changelog
 =========
 
 master:
-- Add supprt for arrays in nested attributes (sqren)
+* Lodash v3.x.x support.
+* Significant refactor
+* Add supprt for arrays in nested attributes (sqren)
 
 0.11.0:
 - Trigger change events only once (restorer)
