@@ -1,5 +1,7 @@
 ## backbone-deep-model
 
+[![Build Status](https://travis-ci.org/kahwee/backbone-deep-model.svg?branch=master)](https://travis-ci.org/kahwee/backbone-deep-model)
+
 Forked from https://github.com/powmedia/backbone-deep-model (Thanks for the wonderful work @powmedia!)
 
 The test cases are rewritten. This is primarily a browserify package. I'll work on making this work in other platforms if there is interest.

@@ -9,12 +9,14 @@ window.Backbone.DeepModel = require('.');
  * Based on https://gist.github.com/echong/3861963
  */
 try {
-	var _ = require('underscore')
+	var _ = require('underscore');
 } catch (e) {
+	var _ = window._;
 }
 try {
 	var Backbone = require('backbone');
 } catch (e) {
+	var Backbone = window.Backbone;
 }
 var arrays, basicObjects, deepClone, deepExtend, deepExtendCouple, isBasicObject,
 	__slice = [].slice;
@@ -123,12 +125,14 @@ _.mixin({
 
 },{"backbone":undefined,"underscore":undefined}],3:[function(require,module,exports){
 try {
-	var _ = require('underscore')
+	var _ = require('underscore');
 } catch (e) {
+	var _ = window._
 }
 try {
 	var Backbone = require('backbone');
 } catch (e) {
+	var Backbone = window.Backbone
 }
 require('../lib/underscore.mixin.deepExtend.js');
 
@@ -349,7 +353,7 @@ var DeepModel = Backbone.Model.extend({
 
 				//Trigger change events for parent keys with wildcard (*) notation
 				for (var n = fields.length - 1; n > 0; n--) {
-					var parentKey = _.first(fields, n).join(separator),
+					var parentKey = fields.slice(0, n).join(separator),
 						wildcardKey = parentKey + separator + '*';
 
 					if (!alreadyTriggered.hasOwnProperty(wildcardKey) || !alreadyTriggered[wildcardKey]) { // * @restorer
