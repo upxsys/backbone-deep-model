@@ -1,7 +1,8 @@
-NOTE: I no longer have time to maintain this module. If you have an actively maintained fork let me know and I'll add the link here.
+## backbone-deep-model
 
-backbone-deep-model
-===================
+Forked from https://github.com/powmedia/backbone-deep-model (Thanks for the wonderful work @powmedia!)
+
+The test cases are rewritten. This is primarily a browserify package. I'll work on making this work in other platforms if there is interest.
 
 Improved support for models with nested attributes.
 
@@ -18,7 +19,7 @@ Installation
 ============
 
 1. Include Backbone and it's dependencies in your page/app.
-2. Include `distribution/deep-model.min.js`
+2. Include `dist/backbone-deep-model.min.js`
 
 Usage
 =====
