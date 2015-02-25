@@ -42,9 +42,11 @@ function objToPaths(obj) {
 }
 
 /**
- * @param {Object}  Object to fetch attribute from
- * @param {String}  Object path e.g. 'user.name'
- * @return {Mixed}
+ * [getNested description]
+ * @param  {object} obj           to fetch attribute from
+ * @param  {string} path          path e.g. 'user.name'
+ * @param  {[type]} return_exists [description]
+ * @return {mixed}                [description]
  */
 function getNested(obj, path, return_exists) {
 	var separator = DeepModel.keyPathSeparator;
