@@ -39,7 +39,7 @@ describe('DeepModel', function() {
 			});
 
 			var model = new Model({
-				collection: new Backbone.Collection
+				collection: new Backbone.Collection()
 			});
 
 			expect(model.get('collection')).is.instanceof(Backbone.Collection);

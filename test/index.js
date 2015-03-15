@@ -1,3 +1,4 @@
+'use strict';
 var DeepModel = require('../');
 var expect = require('chai').expect;
 var bioData = require('./fixtures/bioData.json');
@@ -5,7 +6,7 @@ var bioData = require('./fixtures/bioData.json');
 describe('DeepModel', function() {
 
 	describe('basic setting and stuff', function() {
-		it("should get: Gets nested attribute values", function() {
+		it('should get: Gets nested attribute values', function() {
 			var model = new DeepModel(bioData);
 			expect(model.get('id')).to.equal(123)
 			expect(model.get('user')).to.deep.equal(bioData.user);
@@ -15,7 +16,7 @@ describe('DeepModel', function() {
 		});
 
 
-		it("get: Gets nested attribute values from arrays", function() {
+		it('get: Gets nested attribute values from arrays', function() {
 			var model = new DeepModel({
 				spies: [{
 					name: 'Sterling'
@@ -29,7 +30,7 @@ describe('DeepModel', function() {
 		});
 
 
-		it("get: Gets attributes if empty objects", function() {
+		it('get: Gets attributes if empty objects', function() {
 			var model = new DeepModel({
 				foo: {},
 				bar: []
@@ -75,7 +76,6 @@ describe('DeepModel', function() {
 
 			expect(model.attributes.user.name.first).to.equal('Cheryl');
 			expect(model.attributes.user.name.last).to.equal('Tunt');
-
 
 			model.set({
 				user: {

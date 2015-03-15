@@ -1,3 +1,4 @@
+'use strict';
 var DeepModel = require('../');
 var Backbone = require('backbone');
 var expect = require('chai').expect;
@@ -80,7 +81,7 @@ describe('DeepModel', function() {
 			});
 			expect(deepModel.hasChanged('foo.bar')).to.be.true;
 		});
-	})
+	});
 
 
 

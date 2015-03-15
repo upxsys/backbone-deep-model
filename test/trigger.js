@@ -1,3 +1,5 @@
+'use strict';
+
 var DeepModel = require('../');
 var expect = require('chai').expect;
 var bioData = require('./fixtures/bioData.json');
@@ -14,7 +16,7 @@ describe('DeepModel', function() {
 			});
 		});
 
-		it("set: Triggers model change:[attribute] events", function() {
+		it('set: Triggers model change:[attribute] events', function() {
 			model.set({
 				'id': 456,
 				'user.name.first': 'Lana'

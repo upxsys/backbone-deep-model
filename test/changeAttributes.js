@@ -1,3 +1,4 @@
+'use strict';
 var DeepModel = require('../');
 var Backbone = require('backbone');
 var expect = require('chai').expect;
@@ -17,7 +18,7 @@ describe('DeepModel', function() {
 
 			var expected = {
 				'user.name.first': 'Lana'
-			}
+			};
 
 			expect(changed).to.deep.equal(expected);
 		});
@@ -29,14 +30,14 @@ describe('DeepModel', function() {
 			var diff = {
 				id: 789,
 				'user.name.last': 'Kang'
-			}
+			};
 
 			var changed = model.changedAttributes(diff);
 
 			var expected = {
 				id: 789,
 				'user.name.last': 'Kang'
-			}
+			};
 
 			expect(changed).to.deep.equal(expected);
 		});
@@ -78,8 +79,7 @@ describe('DeepModel', function() {
 					baz: 1
 				}
 			});
-			expect(deepModel.changedAttributes()).to.be.false
-
+			expect(deepModel.changedAttributes()).to.equal(false);
 			deepModel.set({
 				'foo.bar': 2
 			});
@@ -87,7 +87,6 @@ describe('DeepModel', function() {
 				'foo.bar': 2
 			});
 		});
-
 
 		it('changedAttributes(diff): behaves as Model for top level properties', function() {
 			var model = new Backbone.Model({
@@ -114,7 +113,7 @@ describe('DeepModel', function() {
 			});
 
 			expect(deepModel.changedAttributes(diff)).to.deep.equal(model.changedAttributes(diff));
-			expect(deepModel.changedAttributes(diff)).to.be.false
+			expect(deepModel.changedAttributes(diff)).to.be.false;
 		});
 
 		it('changedAttributes(diff): with deep properties', function() {
@@ -138,7 +137,7 @@ describe('DeepModel', function() {
 			deepModel.set({
 				'foo.baz': 2
 			});
-			expect(deepModel.changedAttributes(diff)).to.be.false
+			expect(deepModel.changedAttributes(diff)).to.equal(false);
 		});
 	});
 });
