@@ -4,7 +4,7 @@ var expect = require('chai').expect;
 
 describe('DeepModel', function() {
 	describe('#defaults', function() {
-		it("defaults: with deep attributes", function() {
+		it('defaults: with deep attributes', function() {
 			var DefaultsModel = DeepModel.extend({
 				defaults: {
 					details: {

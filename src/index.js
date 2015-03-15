@@ -1,12 +1,12 @@
 try {
 	var _ = require('underscore');
 } catch (e) {
-	var _ = window._
+	var _ = window._;
 }
 try {
 	var Backbone = require('backbone');
 } catch (e) {
-	var Backbone = window.Backbone
+	var Backbone = window.Backbone;
 }
 require('../lib/underscore.mixin.deepExtend.js');
 
@@ -119,8 +119,6 @@ function deleteNested(obj, path) {
 		unset: true
 	});
 }
-
-
 
 var DeepModel = Backbone.Model.extend({
 
