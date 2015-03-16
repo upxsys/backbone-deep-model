@@ -1,3 +1,4 @@
+'use strict';
 var DeepModel = require('../');
 var Backbone = require('backbone');
 var expect = require('chai').expect;

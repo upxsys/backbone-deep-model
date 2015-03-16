@@ -1,5 +1,4 @@
 'use strict';
-
 var DeepModel = require('../');
 var expect = require('chai').expect;
 var bioData = require('./fixtures/bioData.json');
@@ -60,7 +59,7 @@ describe('DeepModel', function() {
 			});
 		});
 
-		it("set: Correct values passed to wildcard event handlers", function(done) {
+		it('set: Correct values passed to wildcard event handlers', function(done) {
 			var model = new DeepModel(bioData);
 
 			model.on('change:user.name.first', function(model, val) {
@@ -73,7 +72,7 @@ describe('DeepModel', function() {
 
 		});
 
-		it("set: Correct values passed to wildcard event handlers", function(done) {
+		it('set: Correct values passed to wildcard event handlers', function(done) {
 			var model = new DeepModel(bioData);
 			model.on('change:user.name.*', function(model, val) {
 				expect(val).to.deep.equal({

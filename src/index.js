@@ -8,7 +8,7 @@ try {
 } catch (e) {
 	var Backbone = window.Backbone;
 }
-require('../lib/underscore.mixin.deepExtend.js');
+var merge = require('lodash.merge');
 
 /**
  * Takes a nested object and returns a shallow object keyed with the path names
@@ -134,7 +134,7 @@ var DeepModel = Backbone.Model.extend({
 		if (defaults = _.result(this, 'defaults')) {
 			//<custom code>
 			// Replaced the call to _.defaults with _.deepExtend.
-			attrs = _.deepExtend({}, defaults, attrs);
+			attrs = merge(defaults, attrs);
 			//</custom code>
 		}
 		this.set(attrs, options);
@@ -144,7 +144,7 @@ var DeepModel = Backbone.Model.extend({
 
 	// Return a copy of the model's `attributes` object.
 	toJSON: function(options) {
-		return _.deepClone(this.attributes);
+		return merge({}, this.attributes);
 	},
 
 	// Override get
@@ -180,7 +180,7 @@ var DeepModel = Backbone.Model.extend({
 		this._changing = true;
 
 		if (!changing) {
-			this._previousAttributes = _.deepClone(this.attributes); //<custom>: Replaced _.clone with _.deepClone
+			this._previousAttributes = merge({}, this.attributes); //<custom>: Replaced _.clone with _.deepClone
 			this.changed = {};
 		}
 		current = this.attributes, prev = this._previousAttributes;
@@ -316,7 +316,7 @@ var DeepModel = Backbone.Model.extend({
 	// `"change"` event.
 	previousAttributes: function() {
 		//<custom code>
-		return _.deepClone(this._previousAttributes);
+		return merge({}, this._previousAttributes);
 		//</custom code>
 	}
 });
