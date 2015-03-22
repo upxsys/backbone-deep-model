@@ -272,7 +272,9 @@ var DeepModel = Backbone.Model.extend({
 	// Determine if the model has changed since the last `"change"` event.
 	// If you specify an attribute name, determine if that attribute has changed.
 	hasChanged: function(attr) {
-		if (attr == null) return !_.isEmpty(this.changed);
+		if (attr == null) {
+			return !_.isEmpty(this.changed);
+		}
 		return getNested(this.changed, attr) !== undefined;
 	},
 
@@ -305,8 +307,9 @@ var DeepModel = Backbone.Model.extend({
 	// Get the previous value of an attribute, recorded at the time the last
 	// `"change"` event was fired.
 	previous: function(attr) {
-		if (attr == null || !this._previousAttributes) return null;
-
+		if (attr == null || !this._previousAttributes) {
+			return null;
+		}
 		//<custom code>
 		return getNested(this._previousAttributes, attr);
 		//</custom code>
@@ -315,12 +318,9 @@ var DeepModel = Backbone.Model.extend({
 	// Get all of the attributes of the model at the time of the previous
 	// `"change"` event.
 	previousAttributes: function() {
-		//<custom code>
 		return merge({}, this._previousAttributes);
-		//</custom code>
 	}
 });
-
 
 //Config; override in your app to customise
 DeepModel.keyPathSeparator = '.';
