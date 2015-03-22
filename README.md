@@ -1,6 +1,6 @@
 ## backbone-deep-model
 
-[![Build Status](https://travis-ci.org/kahwee/backbone-deep-model.svg?branch=master)](https://travis-ci.org/kahwee/backbone-deep-model) [![Coverage Status](https://coveralls.io/repos/kahwee/backbone-deep-model/badge.svg?branch=master)](https://coveralls.io/r/kahwee/backbone-deep-model?branch=master)
+[![Build Status](https://travis-ci.org/kahwee/backbone-deep-model.svg?branch=master)](https://travis-ci.org/kahwee/backbone-deep-model) [![Coverage Status](https://coveralls.io/repos/kahwee/backbone-deep-model/badge.svg?branch=master)](https://coveralls.io/r/kahwee/backbone-deep-model?branch=master) [![Code Climate](https://codeclimate.com/github/kahwee/backbone-deep-model/badges/gpa.svg)](https://codeclimate.com/github/kahwee/backbone-deep-model)
 
 Forked from https://github.com/powmedia/backbone-deep-model (Thanks for the wonderful work @powmedia!)
 
