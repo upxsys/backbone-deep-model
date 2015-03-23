@@ -17,7 +17,7 @@ describe('DeepModel', function() {
 				}
 			});
 
-			var model = new DefaultsModel({
+			var model1 = new DefaultsModel({
 				details: {
 					name: {
 						first: 'John',
@@ -26,9 +26,15 @@ describe('DeepModel', function() {
 				}
 			});
 
-			expect(model.get('details.name.first')).to.equal('John');
-			expect(model.get('details.name.last')).to.equal('Smith');
-			expect(model.get('details.name.initial')).to.equal('Z');
+			var model2 = new DefaultsModel({
+			});
+
+			expect(model1.get('details.name.first')).to.equal('John');
+			expect(model1.get('details.name.last')).to.equal('Smith');
+			expect(model1.get('details.name.initial')).to.equal('Z');
+			expect(model2.get('details.name.first')).to.be.empty;
+			expect(model2.get('details.name.last')).to.equal('Smith');
+			expect(model2.get('details.name.initial')).to.equal('J');
 		});
 
 

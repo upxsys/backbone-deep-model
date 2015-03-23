@@ -125,18 +125,12 @@ var DeepModel = Backbone.Model.extend({
 	// Override constructor
 	// Support having nested defaults by using _.deepExtend instead of _.extend
 	constructor: function(attributes, options) {
-		var defaults;
 		var attrs = attributes || {};
 		this.cid = _.uniqueId('c');
 		this.attributes = {};
 		if (options && options.collection) this.collection = options.collection;
 		if (options && options.parse) attrs = this.parse(attrs, options) || {};
-		if (defaults = _.result(this, 'defaults')) {
-			//<custom code>
-			// Replaced the call to _.defaults with _.deepExtend.
-			attrs = merge(defaults, attrs);
-			//</custom code>
-		}
+    attrs = merge({}, _.result(this, 'defaults'), attrs);
 		this.set(attrs, options);
 		this.changed = {};
 		this.initialize.apply(this, arguments);

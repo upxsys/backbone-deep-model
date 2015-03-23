@@ -1,6 +1,6 @@
 {
   "name": "backbone-deep-model",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Improved support for models with nested attributes.",
   "author": {
     "name": "Charles Davison"
@@ -12,7 +12,7 @@
     "coverage-html": "istanbul cover ./node_modules/mocha/bin/_mocha -- "
   },
   "dependencies": {
-    "backbone": ">=0.9.10",
+    "backbone": "^1.0.0",
     "jquery": "^2.1.3",
     "lodash.merge": "^3.0.3",
     "underscore": "^1.8.2"
