@@ -81,6 +81,24 @@ describe('DeepModel', function() {
 			});
 			expect(deepModel.hasChanged('foo.bar')).to.be.true;
 		});
+
+
+		it('hasChanged(attr): with unchanged deep attributes', function() {
+			var deepModel = new DeepModel({
+				foo: {
+					bar: 1
+				}
+			});
+
+			expect(deepModel.hasChanged('foo.bar')).to.be.false
+			expect(deepModel.hasChanged('foo')).to.be.false
+
+			deepModel.set({
+				'foo.bar': 1
+			});
+			expect(deepModel.hasChanged('foo.bar')).to.be.false;
+			expect(deepModel.hasChanged('foo')).to.be.false;
+		});
 	});
 
 
