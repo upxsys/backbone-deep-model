@@ -65,6 +65,54 @@ describe('DeepModel', function() {
 			});
 		});
 
+		it('unset: Unset a non-existent key', function() {
+			var model = new DeepModel(bioData);
+			model.unset('foo.bar');
+
+			expect(model.get('user')).to.deep.equal({
+				type: 'Spy',
+				name: {
+					first: 'Sterling',
+					last: 'Archer'
+				}
+			});
+
+			expect(model.toJSON()).to.deep.equal({
+				id: 123,
+				user: {
+					type: 'Spy',
+					name: {
+						first: 'Sterling',
+						last: 'Archer'
+					}
+				}
+			});
+		});
+
+		it('unset: Unset a non-existent deep key', function() {
+			var model = new DeepModel(bioData);
+			model.unset('user.name.middle');
+
+			expect(model.get('user')).to.deep.equal({
+				type: 'Spy',
+				name: {
+					first: 'Sterling',
+					last: 'Archer'
+				}
+			});
+
+			expect(model.toJSON()).to.deep.equal({
+				id: 123,
+				user: {
+					type: 'Spy',
+					name: {
+						first: 'Sterling',
+						last: 'Archer'
+					}
+				}
+			});
+		});
+
 		it('unset: Unset a deeper key', function() {
 			var model = new DeepModel(bioData);
 			model.unset('user.name.last');
