@@ -102,6 +102,13 @@ function setNested(obj, path, val, options) {
 		} else {
 			//Create the child object if it doesn't exist, or isn't an object
 			if (typeof result[field] === 'undefined' || !_.isObject(result[field])) {
+				// If trying to remove a field that doesn't exist, then there's no need
+				// to create its missing parent (doing so causes a problem with
+				// hasChanged()).
+				if (options.unset) {
+					delete result[field]; // in case parent exists but is not an object
+					return;
+				}
 				var nextField = fields[i + 1];
 
 				// create array if next field is integer, else create object
